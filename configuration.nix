@@ -16,6 +16,15 @@
 
   nix.settings.experimental-features = ["flakes" "nix-command"];
 
+  
+  
+  fileSystems."/mnt/backup" = {
+    device = "/dev/disk/by-uuid/2a7190e8-4387-48c4-a549-795e0f298097";
+    fsType = "auto";
+    options = [ "nofail" "x-systemd.automount" "x-systemd.mount-timeout=10s" ];
+  };
+  
+
 
   networking = {
     hostName = "lilleservern";
