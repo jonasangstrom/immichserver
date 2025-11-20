@@ -78,6 +78,15 @@
       accelerationDevices = null;
       openFirewall = true;
     };
+    restic.backups.daily-immich-backup = {
+      paths = [ 
+        "/var/lib/immich"
+      ];
+      user = "root";
+      passwordFile = "/home/jonas/.config/password";
+      repository = "mnt/backup/immich";
+      initialize = false;
+    };
   };
 
   # Configure console keymap
@@ -101,6 +110,7 @@
   #  wget
     neovim
     git
+    restic
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
